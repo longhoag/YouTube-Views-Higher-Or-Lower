@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Raleway:wght@200&family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    user-select: none;
+   -moz-user-select: none;
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+}
+
+html {
+    overflow: hidden;
+}
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+body { 
+    background-color: rgb(40,40,40);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: calc(-100vh - 10px);
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+
+    transition: margin-top 1s;
+}
+
+#start-game {
+    margin-top: -10vh;
+    width: 100%;
+    z-index: 1;
+}
+#start-game > h2 {
+    font-size: 2vw;
+    transform: rotate(-3deg);
+    width: 100%;
+
+    animation: game-header 5s infinite linear;
+}
+.start-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    width: 100%;
+}
+.start-container > button{
+    color: white;
+    background-color: red;
+    border: none;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 1.5vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 2vw;
+    width: max-content;
+    height: max-content;
+
+    transition: background-color 0.25s, color 0.25s;
+}
+.start-container > button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgb(40, 40, 40)
+}
+
+
+
+#background-img1, #background-img2, #slider-background {
+    object-fit: cover;
+    opacity: 1;
+    overflow-x: hidden;
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    z-index: -1;
+
+    filter: blur(6px) brightness(50%);
+    -webkit-filter: blur(6px) brightness(50%);
+
+    transition: margin-left 2s;
+}
+#background-img2 {
+    margin-left: 50vw;
+}
+#slider-background {
+    margin-left: calc(100vw + 8px);
+}
+
+
+#container1, #container2, #slider{
+    box-shadow: inset 0px 0px 100px rgb(0, 0, 0);
+    position: absolute;
+    width: calc(50vw - 4px);
+    height: 100vh;
+
+    transition: margin-left 2s;
+}
+#container1 {
+    border-right: solid 4px rgb(40, 40, 40);
+}
+#container2 {
+    border-left: solid 4px rgb(40, 40, 40);
+    margin-left: 50vw;
+}
+#slider {
+    margin-left: 100vw;
+    border-left: solid 4px rgb(40, 40, 40);
+}
+
+
+#vid1, #vid2, #slider-vid {
+    background-color: black;
+    margin-left: 10%;
+    margin-top: 15vh;
+    width: 80%;
+    
+    transition: background-color 0.15s;
+}
+#vid1:hover, #vid2:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+#vid1 > img, #vid2 > img, #slider-vid > img {
+    display: block;
+    pointer-events: none;
+    opacity: 0.90;
+    width: 100%;
+    height: auto;
+}
+
+#vid-title1, #vid-title2, #slider-title {
+    background-color: rgb(40, 40, 40);
+    color: white;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 1.5vw;
+}
+
+
+
+h2 {
+    color: white;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 5vw;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
+#output-circle { 
+    background-color: white;
+    border: 8px solid rgb(40, 40, 40);
+    border-radius: 100px;
+    color: rgb(40, 40, 40);
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+    font-weight: bold;
+    line-height: 7vw;
+    margin-left: calc(46.5vw - 8px);
+    margin-top: 23vh;
+    position: absolute;
+    text-align: center;
+    width: 7vw;
+    height: 7vw;
+
+    transition: width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, border 0.5s, font-size 0.5s, line-height 0.5s;
+}
+
+
+
+#game-cover {
+    background-color: rgb(40, 40, 40);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+#game-over-wrapper {
+    position: absolute;
+    z-index: -3;
+}
+.game-over {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.game-over > h3 {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+    margin-top: 12.5%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: max-content;
+}
+.game-over > h2 {
+    margin-top: 15%;
+    position: absolute;
+    width: 100%;
+    height: max-content;
+}
+.game-over > p {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5vw;
+    margin-top: 25%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: max-content;
+}
+.game-over > button {
+    background-color: rgb(40, 40, 40);
+    border: 0.25vw solid white;
+    border-radius: 5vw;
+    color: white;
+    font-size: 1.5vw;
+    margin-top: 30%;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    text-align: center;
+    width: max-content;
+    height: max-content;
+
+    transition: background-color 0.25s, color 0.25s;
+}
+.game-over > button:hover {
+    background-color: white;
+    color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+
+@keyframes game-header {
+    25% {
+        transform: scale(1.1, 1.1);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+    75% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
+}
